@@ -27,7 +27,7 @@ services:
   # Database for the first application
   mariadb-1:
     image: 'mariadb:10.6.11'
-    container_name: mariadb
+    container_name: mariadb-1
     restart: always
     environment:
       MYSQL_USER: user
@@ -42,7 +42,7 @@ services:
   # Database for the second application
   mariadb-2:
     image: 'mariadb:10.6.11'
-    container_name: mariadb
+    container_name: mariadb-2
     restart: always
     environment:
       MYSQL_USER: user
