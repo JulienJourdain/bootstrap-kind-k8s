@@ -34,8 +34,6 @@ services:
       MYSQL_PASSWORD: mjuyhnbgtrfvcde
       MYSQL_DATABASE: app
       MYSQL_ROOT_PASSWORD: mjuyhnbgtrfvcde
-    extends:
-      service: base
     ports:
       - '3306:3306'
     volumes:
@@ -51,8 +49,6 @@ services:
       MYSQL_PASSWORD: mjuyhnbgtrfvcde
       MYSQL_DATABASE: app
       MYSQL_ROOT_PASSWORD: mjuyhnbgtrfvcde
-    extends:
-      service: base
     ports:
       - '3306:3306'
     volumes:
