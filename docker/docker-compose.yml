@@ -1,14 +1,6 @@
 version: '3.3'
 
 services:
-  
-  # Base service (template)
-  base:
-    environment:
-      MYSQL_USER: user
-      MYSQL_PASSWORD: mjuyhnbgtrfvcde
-      MYSQL_DATABASE: app
-      MYSQL_ROOT_PASSWORD: mjuyhnbgtrfvcde
 
   # First application
   app-1:
@@ -37,6 +29,11 @@ services:
     image: 'mariadb:10.6.11'
     container_name: mariadb
     restart: always
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: mjuyhnbgtrfvcde
+      MYSQL_DATABASE: app
+      MYSQL_ROOT_PASSWORD: mjuyhnbgtrfvcde
     extends:
       service: base
     ports:
@@ -49,6 +46,11 @@ services:
     image: 'mariadb:10.6.11'
     container_name: mariadb
     restart: always
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: mjuyhnbgtrfvcde
+      MYSQL_DATABASE: app
+      MYSQL_ROOT_PASSWORD: mjuyhnbgtrfvcde
     extends:
       service: base
     ports:
