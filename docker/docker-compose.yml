@@ -1,28 +1,56 @@
 version: '3.3'
+
 services:
+  
+  # Base service (template)
+  base:
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: mjuyhnbgtrfvcde
+      MYSQL_DATABASE: app
+      MYSQL_ROOT_PASSWORD: mjuyhnbgtrfvcde
+
+  # First application
+  app-1:
+    build:
+      context: ./app-1
+      dockerfile: Dockerfile
+    restart: always
+    extends:
+      service: base
+    ports:
+      - 8001:8000
+
+  # Second application
+  app-2:
+    build:
+      context: ./app-2
+      dockerfile: Dockerfile
+    restart: always
+    extends:
+      service: base
+    ports:
+      - 8002:8000
+
+  # Database for the first application
   mariadb-1:
     image: 'mariadb:10.6.11'
     container_name: mariadb
     restart: always
-    environment:
-      - MYSQL_USER: user
-      - MYSQL_PASSWORD: mjuyhnbgtrfvcde
-      - MYSQL_DATABASE: app
-      - MYSQL_ROOT_PASSWORD: mjuyhnbgtrfvcde
+    extends:
+      service: base
     ports:
       - '3306:3306'
     volumes:
       - ${PWD}/mariadb-1/:/var/lib/mysql/
   
+  # Database for the second application
   mariadb-2:
     image: 'mariadb:10.6.11'
     container_name: mariadb
     restart: always
-    environment:
-      - MYSQL_USER: user
-      - MYSQL_PASSWORD: mjuyhnbgtrfvcde
-      - MYSQL_DATABASE: app
-      - MYSQL_ROOT_PASSWORD: mjuyhnbgtrfvcde
+    extends:
+      service: base
     ports:
       - '3306:3306'
     volumes:
