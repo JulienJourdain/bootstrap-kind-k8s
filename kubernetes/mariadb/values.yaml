@@ -1,0 +1,6 @@
+mariadb:
+  auth:
+    rootPassword: "mjuyhnbgtrfvcde"
+    database: app
+    username: "user"
+    password: "qazxswedcvfrtgb"
