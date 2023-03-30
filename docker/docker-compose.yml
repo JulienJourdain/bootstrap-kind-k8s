@@ -8,8 +8,6 @@ services:
       context: ./app-1
       dockerfile: Dockerfile
     restart: always
-    extends:
-      service: base
     ports:
       - 8001:8000
 
@@ -19,8 +17,6 @@ services:
       context: ./app-2
       dockerfile: Dockerfile
     restart: always
-    extends:
-      service: base
     ports:
       - 8002:8000
 
