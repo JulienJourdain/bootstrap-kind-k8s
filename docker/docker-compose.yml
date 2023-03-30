@@ -18,7 +18,8 @@ services:
         "spring.datasource.username" : "user",
         "spring.datasource.password" : "mjuyhnbgtrfvcde",
         "spring.datasource.driver-class-name" : "org.mariadb.jdbc.Driver",
-        "spring.jpa.hibernate.ddl-auto" : "update"
+        "spring.jpa.hibernate.ddl-auto" : "update",
+        "endpoint.ms2-url" : "http://app-2"
         }'
     stdin_open: true
     tty: true
