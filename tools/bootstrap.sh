@@ -4,7 +4,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" > /dev/null && pwd )
 CLUSTER_NAME="$(echo $USER | tr '[:upper:]' '[:lower:]')"
 
 create_kind_cluster() {
-    if [[ $(kind get clusters | grep $CLUSTER_NAME) ]]; then
+    if [[ $(kind -q get clusters | grep $CLUSTER_NAME) ]]; then
         echo "👌 Kind cluster $CLUSTER_NAME already exists"
     else
         echo "⏳ Bootstrapping your Kubernetes cluster... Go grab a coffee ☕️"
@@ -42,8 +42,8 @@ deploy_nginx_ingress_controller() {
 }
 
 check_nginx_ingress_controller() {
-    if [[ $(kubectl get ns ingress-nginx) ]]; then
-        if [[ $(kubectl get pods -n ingress-nginx | wc -l)-1 -gt 0 ]]; then
+    if [[ $(kubectl get ns ingress-nginx > /dev/null 2>&1) ]]; then
+        if [[ $(kubectl get pods -n ingress-nginx > /dev/null 2>&1) != "" ]]; then
             echo "👌 NGINX ingress controller already exists"
         else
             deploy_nginx_ingress_controller
