@@ -26,10 +26,10 @@ services:
     container_name: mariadb-1
     restart: always
     environment:
-      MYSQL_USER: user
-      MYSQL_PASSWORD: mjuyhnbgtrfvcde
-      MYSQL_DATABASE: app
-      MYSQL_ROOT_PASSWORD: mjuyhnbgtrfvcde
+      MARIADB_USER: user
+      MARIADB_PASSWORD: mjuyhnbgtrfvcde
+      MARIADB_DATABASE: app
+      MARIADB_ROOT_PASSWORD: mjuyhnbgtrfvcde
     ports:
       - '3306:3306'
     volumes:
@@ -41,10 +41,10 @@ services:
     container_name: mariadb-2
     restart: always
     environment:
-      MYSQL_USER: user
-      MYSQL_PASSWORD: mjuyhnbgtrfvcde
-      MYSQL_DATABASE: app
-      MYSQL_ROOT_PASSWORD: mjuyhnbgtrfvcde
+      MARIADB_USER: user
+      MARIADB_PASSWORD: mjuyhnbgtrfvcde
+      MARIADB_DATABASE: app
+      MARIADB_ROOT_PASSWORD: mjuyhnbgtrfvcde
     ports:
       - '3306:3306'
     volumes:
